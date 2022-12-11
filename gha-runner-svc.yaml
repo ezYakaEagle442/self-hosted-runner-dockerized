@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: gha-runner
+  name: gha-runner
+spec:
+  ports:
+  - name: http
+    port: ${APP_PORT}
+    protocol: TCP
+    targetPort: ${APP_PORT}
+  selector:
+    app: gha-runner
+  type: ClusterIP
+status:
+  loadBalancer: {}

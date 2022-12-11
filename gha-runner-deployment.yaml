@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gha-runner
+  name: gha-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gha-runner
+  template:
+    metadata:
+      labels:
+        app: gha-runner
+    spec:
+
+      volumes:
+      - name: kubectl
+        emptyDir: {}
+      - name: helm
+        emptyDir: {}
+      - name: workdir
+        emptyDir: {}
+
+      # These containers are run during pod initialization
+      initContainers:
+      - name: install
+        image: busybox
+        command: ['sh', '-c', 'touch /tmp/dummyfile']
+        volumeMounts:
+        - name: workdir
+          mountPath: /tmp/
+
+      containers:
+      - name: gha-runner
+        image: pinpindock/self-hosted-runnner # https://hub.docker.com/r/pinpindock/self-hosted-runnner
+        command: ['sh', '-c', 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 3600; done']
+        env:
+        - name: OWNER
+          value: "$OWNER"
+        - name: REPO
+          value: "$REPO"
+        - name: NAME
+          value: "$NAME"
+        - name: GHA_RUNNER_PAT
+          value: "$GHA_RUNNER_PAT"               
+        ports:
+        - containerPort: ${APP_PORT}
+        volumeMounts:
+        - name: helm
+          mountPath: /usr/local/bin
+        - name: kubectl
+          mountPath: /usr/local/bin/kubectl
+
+      - name:  busybox
+        image:  busybox
+        #command: ['sh', '-c', 'if [ ! -e /tmp/dummyfile]; then exit;fi;']
+        command: ['sh', '-c', 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 3600; done']
+        ports:
+        - containerPort: 8042
+        volumeMounts:
+        - name: workdir
+          mountPath: /tmp/

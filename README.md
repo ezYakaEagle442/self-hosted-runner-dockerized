@@ -3,6 +3,7 @@ This repo is a dockerized version of the self-hosted runner. Usage is meant to b
 
 For more information, you can read:
 
+- [GitHub Actions: A practical guide, written by LG Morand](https://www.amazon.com/GitHub-Actions-practical-Louis-Guillaume-MORAND-ebook/dp/B09D3Z3Y48/ref=sr_1_1?qid=1670759977&refinements=p_27%3ALouis-Guillaume+MORAND&s=digital-text&sr=1-1&text=Louis-Guillaume+MORAND)
 - [https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#using-a-github-hosted-runner](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#using-a-github-hosted-runner)
 - [https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
 - [https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md#installed-software](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md#installed-software)

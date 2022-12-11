@@ -1,6 +1,20 @@
 # GHA self-hosted dockerized Runner
 This repo is a dockerized version of the self-hosted runner. Usage is meant to be able to deploy a self-runner agent easily and fully containerized
 
+For more information, you can read:
+
+- [https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#using-a-github-hosted-runner](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#using-a-github-hosted-runner)
+- [https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
+- [https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md#installed-software](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md#installed-software)
+- [https://github.com/actions/runner-images/tree/main/images/linux/scripts/installers](https://github.com/actions/runner-images/tree/main/images/linux/scripts/installers)
+- [https://github.com/actions/runner-images/blob/main/docs/create-image-and-azure-resources.md](https://github.com/actions/runner-images/blob/main/docs/create-image-and-azure-resources.md)
+- [https://github.com/actions/runner-images/blob/main/images/linux/toolsets/toolset-2204.json](https://github.com/actions/runner-images/blob/main/images/linux/toolsets/toolset-2204.json)
+- [https://github.com/actions/runner-images/blob/main/images/linux/ubuntu2004.json](https://github.com/actions/runner-images/blob/main/images/linux/ubuntu2004.json)
+- [https://github.com/actions/runner-images/blob/main/images/linux/ubuntu2204.pkr.hcl](https://github.com/actions/runner-images/blob/main/images/linux/ubuntu2204.pkr.hcl)
+- [https://github.com/actions/runner-images/blob/main/images.CI/linux-and-win/azure-pipelines/image-generation.yml](https://github.com/actions/runner-images/blob/main/images.CI/linux-and-win/azure-pipelines/image-generation.yml)
+
+ubuntu-latest is currently transitioning to ubuntu-22.04. During this time, you may experience some jobs running on either an ubuntu-20.04 or ubuntu-22.04 runner. You can specify runs-on: ubuntu-20.04 in your workflow if you need the previous version. Details can be found in this [announcement](https://github.com/actions/runner-images/issues/6399).
+
 ## Docker Build
 
 ## Set Environment variables and Config files
